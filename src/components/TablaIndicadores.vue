@@ -1,23 +1,28 @@
 <template>
-  <div class="FormIndicadores">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Indicador</th>
-          <th scope="col">Valor $ en CLP</th>
-          <th scope="col">Fecha de Cotización</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in arrayApiHome" :key="index">
-          <th scope="row">{{ index +1}}</th>
-          <th>{{ item.indicador.nombre }}</th>
-          <th>{{ item.indicador.valor }}</th>
-          <th>{{ fecha }}</th>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <div class="formIndicadores">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Indicador</th>
+            <th scope="col">Valor $ en CLP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in arrayApiHome" :key="index">
+            <!-- <th scope="row">{{ index +1}}</th> -->
+            <th>{{ item.indicador.nombre }}</th>
+            <th>{{ item.indicador.valor }}</th>
+            <!-- <th>{{ fechaState }}</th> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <span class="demo-input-label">Ultima actualización</span>
+      <span class="demo-input-label">{{ fechaState}}</span>
+    </div>
   </div>
 </template>
 
@@ -26,11 +31,9 @@ import { mapState } from "vuex";
 export default {
   name: "TablaIndicadores",
   computed: {
-    ...mapState(["arrayApiHome", "fecha"])
-  },
-  cambioValor(x) {
-    return;
+    ...mapState(["arrayApiHome", "fechaState"])
   }
+  // cambioValor(x) {}
 };
 </script>
 
@@ -49,5 +52,20 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.formIndicadores {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 90%;
+  border: solid 2px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.demo-input-label {
+  padding: 5px;
 }
 </style>

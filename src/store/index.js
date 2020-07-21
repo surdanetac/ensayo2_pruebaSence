@@ -6,29 +6,36 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     arrayApiHome: "",
-    fecha: "",
+    fechaState: "",
     indicadoresDiaState: "",
+    indicadoresHistorialState: "",
   },
   mutations: {
     stateconsultahome(state, data) {
       state.arrayApiHome = data;
     },
     setfechastate(state, data) {
-      state.fecha = data;
+      state.fechaState = data;
     },
-    setConsultaDiaState(state, data) {
+    setconsultadiastate(state, data) {
       state.indicadoresDiaState = data;
+    },
+    setindicadoreshistorialstate(state, data) {
+      state.indicadoresHistorialState = data;
     },
   },
   actions: {
-    setconsulta({ commit }, data) {
-      commit("stateconsultahome", data);
+    setconsulta({ commit }, indicadores) {
+      commit("stateconsultahome", indicadores);
     },
-    setfecha({ commit }, data) {
-      commit("setfechastate", data);
+    setfecha({ commit }, newFecha) {
+      commit("setfechastate", newFecha);
     },
-    setConsultaDia({ commit }, data) {
-      commit("setConsultaDiaState", data);
+    setconsultadia({ commit }, indicadoresDia) {
+      commit("setconsultadiastate", indicadoresDia);
+    },
+    setindicadoreshistorial({ commit }, indicadoresHistorial) {
+      commit("setindicadoreshistorialstate", indicadoresHistorial);
     },
   },
   modules: {},
